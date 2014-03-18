@@ -38,3 +38,21 @@ class BinaryNode:
         self.data, self, lf, self.rt = v, lf, rt
 
     def lookup(self, v):
+    	if self.data == v:
+    		return 1
+    	elif self.data > v:
+    		return self.lf.lookup(v)
+    	else:
+    		return self.rt.lookup(v)
+
+    def insert(self, v):
+    	if self.data > v:
+    		self.lf = self.lf.insert(v)
+
+    	elif self.data < v:
+    		self.rt = self.rt.insert(v)
+
+    	return self
+
+    def __repr__(self):
+    	return '({}, {}, {})'.format(repr(self.lf, repr(self.data), repr(self.rt)))
